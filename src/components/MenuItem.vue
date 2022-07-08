@@ -22,7 +22,7 @@
     >
       <menu-item
         v-for="(item, index) in data"
-        :key= "index"
+        :key="index"
         :label="item.label"
         :icon= item.icon
         :depth="depth + 1"

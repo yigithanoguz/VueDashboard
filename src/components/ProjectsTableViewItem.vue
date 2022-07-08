@@ -1,7 +1,26 @@
 <template>
   <tr class="projects-table-view-item">
     <td>
-      <img src="" alt="">
+      <!-- <img src="" alt=""> -->
+      {{ name }}
+    </td>
+    <td>
+      <span class="process-color" :class="{ 'color-orange': process=='In progress', 'color-green': process=='Done', 'color-gray': process=='Not started' }">● </span>
+      <span class="process-name"> {{ process }} </span>
+    </td>
+    <td>
+      Team
+    </td>
+    <td>
+      {{ totalBudget }}
+    </td>
+    <td class="event-icon">
+      <span class="btn">
+        View
+      </span>
+      <span class="btn">
+        <i class="bi bi-trash"></i>
+      </span>
     </td>
   </tr>
 </template>
@@ -46,3 +65,36 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+  tr {
+    height: 50px;
+    &:nth-child(2n) {
+      background-color: rgb(247, 236, 255);
+    }
+    td {
+      height: 100%;
+      &.event-icon {
+        // padding-right: 10px;
+        text-align: right;
+        .btn {
+          margin-right: 10px;
+          display: inline-block;
+          // border: solid 1px gray;
+          padding: 5px;
+          border-radius: 8px;
+          cursor: pointer;
+          background-color: white;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          transition: 300ms;
+          &:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+          }
+      }
+      }
+
+
+    }
+  }
+</style>

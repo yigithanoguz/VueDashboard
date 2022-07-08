@@ -1,13 +1,14 @@
 <template>
   <div class="projects-table-view">
 
-    <table>
+    <table border="0" cellspacing="0" cellpadding="0">
       <thead>
         <tr>
           <th>Name</th>
           <th>Process</th>
           <th>Team</th>
           <th>Total Budget</th>
+          <th class="event-icon"></th>
         </tr>
       </thead>
       <tbody>
@@ -44,3 +45,28 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+
+  .projects-table-view {
+    padding: 20px;
+    table {
+      // padding: 10px;
+      width: 100%;
+      // border: 1px solid red;
+      background-color: white;
+      // border-radius: 14px;
+      thead {
+        tr {
+          height: 45px;
+          th {
+            text-align: left;
+            border: solid 1px blue;
+          }
+        }
+      }
+    }
+  }
+
+</style>
