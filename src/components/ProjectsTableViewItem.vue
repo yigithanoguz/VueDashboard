@@ -5,20 +5,26 @@
       {{ name }}
     </td>
     <td>
-      <span class="process-color" :class="{ 'color-orange': process=='In progress', 'color-green': process=='Done', 'color-gray': process=='Not started' }">● </span>
-      <span class="process-name"> {{ process }} </span>
+      <span class="process" @click="changeProcess">
+        <span class="process-color" :class="{ 'color-orange': process=='In progress', 'color-green': process=='Done', 'color-gray': process=='Not started' }">● </span>
+        <span class="process-name"> {{ process }} </span>
+      </span>
     </td>
     <td>
       Team
     </td>
     <td>
-      {{ totalBudget }}
+      <div class="budget">
+        <span v-if="currency=='USD'">$</span>
+        <span v-else> {{ currency }} </span>
+        <span> {{ totalBudget }} </span>
+      </div>
     </td>
     <td class="event-icon">
       <span class="btn">
         View
       </span>
-      <span class="btn">
+      <span class="btn" @click="deleteProject(key)">
         <i class="bi bi-trash"></i>
       </span>
     </td>
@@ -26,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'projects-table-view-item',
   data: () => ({
@@ -49,7 +56,13 @@ export default {
     },
     currency: {
       type: String,
-    }
+    },
+    item: {
+      type: Object,
+    },
+    project: {
+      type: Array,
+    },
   },
   methods: {
     changeProcess() {
@@ -61,6 +74,10 @@ export default {
         this.process = 'Done';
 
       else this.process = 'Not started';
+    },
+    deleteProject(value) {
+      console.log(this.item);
+      this.project.pop(value);
     }
   }
 }
@@ -68,8 +85,20 @@ export default {
 
 
 <style lang="scss" scoped>
+
+  .color-orange {
+    color: orange;
+  }
+  .color-gray {
+    color: gray;
+  }
+  .color-green {
+    color: rgb(6, 225, 6);
+  }
+
   tr {
     height: 50px;
+    font-size: 0.9rem;
     &:nth-child(2n) {
       background-color: rgb(247, 236, 255);
     }
@@ -91,9 +120,12 @@ export default {
           &:hover {
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
           }
+        }
       }
+      .process {
+        cursor: pointer;
+        user-select: none;
       }
-
 
     }
   }

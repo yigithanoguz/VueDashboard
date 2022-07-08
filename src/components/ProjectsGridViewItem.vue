@@ -31,7 +31,7 @@
         <span class="process-name"> {{ process }} </span>
       </div>
       <div class="icons">
-        <i class="bi bi-arrow-clockwise" @click="changeProcess"></i>
+        <i class="bi bi-arrow-clockwise" @click="changeProcess()"></i>
         <i class="bi bi-three-dots"></i>
       </div>
     </div>
@@ -64,7 +64,7 @@
 export default {
   name: 'projects-grid-view-item',
   data: () => ({
-    processColor: null
+    // processColor: null
   }),
   props: {
     name: {
@@ -84,7 +84,13 @@ export default {
     },
     currency: {
       type: String,
-    }
+    },
+    item: {
+      type: Object,
+    },
+    project: {
+      type: Array,
+    },
   },
   methods: {
     changeProcess() {

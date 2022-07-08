@@ -16,6 +16,8 @@
         <ProjectsTableViewItem
           v-for="(item, index) in project"
           :key="index"
+          :project="project"
+          :item="item"
           :name="item.name"
           :img="item.img"
           :process="item.process"

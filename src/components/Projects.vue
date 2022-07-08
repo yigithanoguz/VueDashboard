@@ -3,7 +3,7 @@
     <Header />
     <ProjectsTopBar />
     <ProjectsTabs />
-    <!-- <ProjectsGridView :project="project" /> -->
+    <ProjectsGridView :project="project" />
     <ProjectsTableView :project="project" />
   </div>
 </template>
@@ -12,7 +12,7 @@
 import Header from './Header.vue';
 import ProjectsTopBar from './ProjectsTopBar.vue';
 import ProjectsTabs from "./ProjectsTabs.vue";
-// import ProjectsGridView from './ProjectsGridView.vue';
+import ProjectsGridView from './ProjectsGridView.vue';
 import ProjectsTableView from './ProjectsTableView.vue';
 
 export default {
@@ -21,7 +21,7 @@ export default {
     Header,
     ProjectsTopBar,
     ProjectsTabs,
-    // ProjectsGridView,
+    ProjectsGridView,
     ProjectsTableView,
   },
   props: {
