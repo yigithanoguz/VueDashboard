@@ -24,6 +24,43 @@
       <div class="card-details">Details</div>
     </div>
   </div> -->
+
+
+  <!-- <div class="card">
+    <div class="card-header">
+      <div class="process">
+        <span class="process-color" :class="{ 'color-orange': process=='In progress', 'color-green': process=='Done', 'color-gray': process=='Not started' }">● </span>
+        <span class="process-name"> {{ process }} </span>
+      </div>
+      <div class="icons">
+        <i class="bi bi-arrow-clockwise" @click="changeProcess()"></i>
+        <i class="bi bi-three-dots"></i>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="card-img">
+        <img :src="img" alt="logo" />
+      </div>
+      <div class="card-title"> {{ name }} </div>
+      <div class="card-icons">
+        <i class="bi bi-bar-chart-fill"></i>
+        <i class="bi bi-bar-chart-fill"></i>
+        <i class="bi bi-bar-chart-fill"></i>
+      </div>
+      <div class="card-details">
+        <div class="budget">
+          <span v-if="currency=='USD'">$</span>
+          <span v-else> {{ currency }} </span>
+          <span> {{ totalBudget }} </span>
+        </div>
+        <div class="info">
+          Total Budget
+        </div>
+      </div>
+    </div>
+  </div> -->
+
   <div class="card">
     <div class="card-header">
       <div class="process">

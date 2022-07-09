@@ -5,6 +5,7 @@
     <ProjectsTabs />
     <ProjectsGridView :project="project" />
     <ProjectsTableView :project="project" />
+    <CreateProject />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import ProjectsTopBar from './ProjectsTopBar.vue';
 import ProjectsTabs from "./ProjectsTabs.vue";
 import ProjectsGridView from './ProjectsGridView.vue';
 import ProjectsTableView from './ProjectsTableView.vue';
+import CreateProject from './CreateProject.vue';
 
 export default {
   name: 'App',
@@ -23,6 +25,7 @@ export default {
     ProjectsTabs,
     ProjectsGridView,
     ProjectsTableView,
+    CreateProject
   },
   props: {
     project: {
