@@ -19,14 +19,14 @@
           <span class="process-name"> {{ post.process }} </span>
         </div>
         <div class="icons">
-          <i class="bi bi-arrow-clockwise" @click="changeProcess()"></i>
+          <i class="bi bi-arrow-clockwise" @click.prevent="changeProcess(post)"></i>
           <i class="bi bi-three-dots"></i>
         </div>
       </div>
 
       <div class="card-body">
         <div class="card-img">
-          <img :src="img" alt="logo" />
+          <img :src="post.img" alt="logo" />
         </div>
         <div class="card-title"> {{ post.name }} </div>
         <div class="card-icons">
@@ -66,6 +66,7 @@ export default {
   data() {
     return {
       projectList: [],
+      editProcess: '',
     }
   },
   created() {
@@ -76,6 +77,31 @@ export default {
           this.projectList.push({ ...data[key], id: key });
         }
       })
+  },
+  methods: {
+    changeProcess(value) {
+
+      console.log(value);
+      if (value.process == 'Not started') {
+        this.editProcess = 'In progress';
+
+      }
+      else if (value.process == 'In progress') {
+        this.editProcess = 'Done';
+      }
+
+      else {
+        this.editProcess = 'Not started';
+      }
+
+      console.log(this.editProcess);
+
+      axios.put(`https://6293500f089f87a57abdf537.mockapi.io/project/:${value.id}`, { process: this.editProcess })
+        .then(response => {
+          console.log(response)
+        })
+        .catch(e => console.log(e));
+    }
   }
 }
 </script>
