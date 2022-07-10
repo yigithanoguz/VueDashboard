@@ -51,7 +51,7 @@
             <span class="btn">
               View
             </span>
-            <span class="btn" @click="deleteProject(key)">
+            <span class="btn" @click="deleteProject(post)">
               <i class="bi bi-trash"></i>
             </span>
           </td>
@@ -92,6 +92,15 @@ export default {
           this.projectList.push({ ...data[key], id: key });
         }
       })
+  },
+  methods: {
+    deleteProject(value) {
+      axios.delete(`https://6293500f089f87a57abdf537.mockapi.io/project/:${value.id}`)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(e => console.log(e));
+    }
   }
 }
 </script>
