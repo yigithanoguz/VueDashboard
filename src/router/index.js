@@ -19,7 +19,21 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
-  }
+  },
+  {
+    path: '/Table',
+    name: 'Table',
+    component: function () {
+      return import('../views/Table.vue')
+    }
+  },
+  {
+    path: '/addproject',
+    name: 'addproject',
+    component: function () {
+      return import('../views/AddProject.vue')
+    }
+  },
 ]
 
 const router = new VueRouter({

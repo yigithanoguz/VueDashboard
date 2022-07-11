@@ -1,25 +1,23 @@
 <template>
   <div id="app">
     <Menu />
-    <!-- <CreateProject /> -->
-    <Projects
-      :project="project"
-    />
-    <!-- <router-view/> -->
+    <Content />
   </div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
-import Projects from './components/Projects.vue'
+import Content from './components/Content.vue'
+// import Projects from './components/Projects.vue'
 // import CreateProject from './components/CreateProject.vue'
 
 export default {
   name: 'App',
   components: {
     Menu,
+    Content
     // CreateProject,
-    Projects,
+    // Projects,
   },
   data: () => ({
     project: [

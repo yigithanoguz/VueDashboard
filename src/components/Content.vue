@@ -1,6 +1,10 @@
 <template>
   <div class="content">
-    <ProjectsGridView :project="project" />
+    <Header />
+
+    <router-view></router-view>
+    <!-- <ProjectsGridView /> -->
+
     <!-- <ProjectsTableView :project="project" />
     <CreateProject /> -->
   </div>
@@ -8,14 +12,16 @@
 
 <script>
 
-import ProjectsGridView from './ProjectsGridView.vue';
+import Header from './Header.vue';
+// import ProjectsGridView from './ProjectsGridView.vue';
 // import ProjectsTableView from './ProjectsTableView.vue';
 // import CreateProject from './CreateProject.vue';
 
 export default {
   name: 'App',
   components: {
-    ProjectsGridView,
+    Header,
+    // ProjectsGridView,
     // ProjectsTableView,
     // CreateProject
   },

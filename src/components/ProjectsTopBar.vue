@@ -20,15 +20,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $color-purple: rgb(117, 77, 209);
+  $color-btn: rgb(123, 92, 172);
+  $color-btn-hover: rgb(92, 66, 134);
 
   .top-bar {
     width: 100%;
     height: 60px;
     padding: 0 20px;
     border-bottom: blue solid 1px;
-    // display: flex;
-    // flex-direction: column;
     .title {
       width: 100%;
       height: 100%;
@@ -36,19 +35,23 @@ export default {
       justify-content: space-between;
       align-items: center;
       button {
-      height: 45px;
-      width: 120px;
-      cursor: pointer;
-      border-radius: 10px;
-      border: none;
-      background-color: $color-purple;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
+        height: 40px;
+        width: 120px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: none;
+        background-color: $color-btn;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        transition: all 300ms ease;
+        &:hover {
+          background-color: $color-btn-hover;
+        }
       }
     }
 

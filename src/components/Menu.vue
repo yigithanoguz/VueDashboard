@@ -26,6 +26,7 @@ export default {
           children: [
             {
               label: 'Grid View',
+              to: '/about',
             },
             {
               label: 'Table View',
@@ -107,13 +108,15 @@ export default {
   .menu {
     height: 100vh;
     width: 280px;
-    border-right: 1px solid blue;
+    // border-right: 1px solid blue;
+    background-color: rgb(255, 249, 255);
     overflow: auto;
     transition: all 300ms ease;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
   /* width */
 ::-webkit-scrollbar {

@@ -20,6 +20,7 @@
       ref="container"
       :style="{ height: containerHeight }"
     >
+
       <menu-item
         v-for="(item, index) in data"
         :key="index"
@@ -54,6 +55,9 @@ export default {
     },
     data: {
       type: Array,
+    },
+    to: {
+      type: String,
     }
   },
   methods: {
@@ -87,7 +91,7 @@ export default {
 <style lang="scss" scoped>
   $color-purple: rgb(117, 77, 209);
   $color-gray: gray;
-  $color-hover: rgb(222, 212, 233);
+  $color-hover: rgb(247, 236, 255);
 
   .menu-item {
     width: 100%;
