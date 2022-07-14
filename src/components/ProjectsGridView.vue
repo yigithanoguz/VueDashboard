@@ -12,7 +12,7 @@
             <span class="process-name"> {{ post.process }} </span>
           </div>
           <div class="icons">
-            <i class="bi bi-arrow-clockwise" @click.prevent="changeProcess(post)"></i>
+            <i class="bi bi-arrow-clockwise" @click="changeProcess(post)"></i>
             <i class="bi bi-three-dots"></i>
           </div>
         </div>
@@ -81,6 +81,8 @@ export default {
   methods: {
     changeProcess(value) {
 
+      value.id = Number(value.id);
+
       console.log(value);
       if (value.process == 'Not started') {
         this.editProcess = 'In progress';
@@ -96,7 +98,7 @@ export default {
 
       console.log(this.editProcess);
 
-      axios.put(`https://6293500f089f87a57abdf537.mockapi.io/project/:${value.id}`, { process: this.editProcess })
+      axios.put(`https://6293500f089f87a57abdf537.mockapi.io/project/${value.id + 1}`, { process: this.editProcess })
         .then(response => {
           console.log(response)
         })

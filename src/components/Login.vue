@@ -1,31 +1,18 @@
 <template>
-  <div class="create-project">
-    <ProjectsTopBar />
-    <ProjectsTabs />
+  <div class="login">
+    <LoginTopBar />
+    <!-- <ProjectsTabs /> -->
 
     <div class="form">
       <form @submit.prevent="onSubmit">
-        <label>Name </label>
-        <input type="text" v-model="post.name" />
+        <label>Email </label>
+        <input type="text" v-model="login.email" />
 
-        <label>Image Link </label>
-        <input type="text" v-model="post.img" />
+        <label>Password </label>
+        <input type="password" v-model="login.password" />
 
-        <label>Process </label>
-        <input type="text" v-model="post.process" />
-
-        <label>Total Budget </label>
-        <input type="text" v-model="post.totalBudget" />
-
-        <label>Choose a currency</label>
-        <select v-model="post.currency">
-          <option value="usd">$ - USD</option>
-          <option value="euro">€ - Euro</option>
-          <option value="sterlin">£ - Sterlin</option>
-          <option value="tl">₺ - TL</option>
-        </select>
         <br />
-        <button type="submit">Onayla</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   </div>
@@ -33,36 +20,41 @@
 
 <script>
 import axios from "axios";
-import ProjectsTopBar from "./ProjectsTopBar.vue";
-import ProjectsTabs from "./ProjectsTabs.vue";
+import LoginTopBar from "./LoginTopBar.vue";
+// import ProjectsTabs from "./ProjectsTabs.vue";
 
 export default {
+  name: 'login',
   data() {
     return {
-      post: {
-        name: "",
-        img: "",
-        process: "",
-        totalBudget: "",
-        currency: "",
+      login: {
+        email: '',
+        password: '',
       },
     };
   },
   methods: {
     onSubmit() {
-      axios
-        .post("https://6293500f089f87a57abdf537.mockapi.io/project", {
-          ...this.post,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((e) => console.log(e));
+      let email = this.login.email;
+      let password = this.login.password;
+      axios.get('https://6293500f089f87a57abdf537.mockapi.io/user')
+      .then(response => {
+        let data = response.data;
+        for(let key in data) {
+          if(data[key].email === email && data[key].password === password) {
+            this.login = data[key];
+            console.log(this.login);
+            this.$emit('user', this.login);
+            return console.log('Giriş başarılı...');
+          }
+        }
+        console.log('Hatalı giriş...');
+      })
     },
   },
   components: {
-    ProjectsTopBar,
-    ProjectsTabs,
+    LoginTopBar,
+    // ProjectsTabs,
   },
 };
 </script>
@@ -75,7 +67,8 @@ $color-input-border-focus: rgb(92, 66, 134);
 $color-button-bg: rgb(123, 92, 172);
 $color-button-bg-hover: rgb(92, 66, 134);
 
-.create-project {
+.login {
+
   .form {
     padding: 20px;
 
@@ -85,7 +78,9 @@ $color-button-bg-hover: rgb(92, 66, 134);
       padding: 0 5%;
       gap: 10px;
 
-      input[type="text"] {
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
         height: 35px;
         padding: 10px;
         font-size: 1rem;
@@ -132,4 +127,5 @@ $color-button-bg-hover: rgb(92, 66, 134);
     }
   }
 }
+
 </style>

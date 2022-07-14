@@ -55,7 +55,7 @@ export default {
           ]
         },
         {
-          label: 'Users',
+          label: 'User',
           icon: 'bi-people-fill',
           children: [
             {

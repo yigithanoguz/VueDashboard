@@ -1,7 +1,6 @@
 <template>
   <div class="content">
     <Header />
-
     <router-view></router-view>
     <!-- <ProjectsGridView /> -->
 
@@ -28,6 +27,13 @@ export default {
   props: {
     project: {
       type: Array
+    }
+  },
+  data() {
+    return {
+      user: {
+
+      }
     }
   }
 }

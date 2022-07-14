@@ -34,6 +34,13 @@ const routes = [
       return import('../views/AddProject.vue')
     }
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: function () {
+      return import('../views/Login.vue')
+    }
+  },
 ]
 
 const router = new VueRouter({

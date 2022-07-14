@@ -28,7 +28,7 @@
               </div>
             </td>
             <td>
-              <span class="process" @click="changeProcess">
+              <span class="process" @click="changeProcess(item)">
                 <span
                   class="process-color"
                   :class="{
@@ -84,6 +84,7 @@ export default {
   data() {
     return {
       projectList: [],
+      editProcess: '',
     };
   },
   created() {
@@ -99,18 +100,46 @@ export default {
   methods: {
     deleteProject(value) {
       value = Number(value);
-      value += 1;
+      console.log(typeof(value));
+      // value += 1;
       axios
         .delete(
-          `https://6293500f089f87a57abdf537.mockapi.io/project/${value}`
+          `https://6293500f089f87a57abdf537.mockapi.io/project/${value + 1}`
         )
         .then((response) => {
           console.log(response);
         })
         .catch((e) => console.log(e));
 
-        this.projectList.pop(this.item);
+      this.projectList.splice(value, 1);
+
     },
+
+    changeProcess(value) {
+
+      value.id = Number(value.id);
+
+      console.log(value);
+      if (value.process == 'Not started') {
+        this.editProcess = 'In progress';
+
+      }
+      else if (value.process == 'In progress') {
+        this.editProcess = 'Done';
+      }
+
+      else {
+        this.editProcess = 'Not started';
+      }
+
+      console.log(this.editProcess);
+
+      axios.put(`https://6293500f089f87a57abdf537.mockapi.io/project/${value.id + 1}`, { process: this.editProcess })
+        .then(response => {
+          console.log(response)
+        })
+        .catch(e => console.log(e));
+    }
   },
 };
 </script>
