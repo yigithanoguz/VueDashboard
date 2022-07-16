@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <Login @user="user = $event"/>
+    <Login @user="user = $event" />
   </div>
 </template>
 
@@ -18,11 +18,16 @@ export default {
       user: {
 
       },
-
     }
   },
-  // mounted() {
-  //   this.$router.push({name: 'login', params: { this.user } })
-  // }
+  methods: {
+    sendUser() {
+      this.$emit('user', this.user);
+      this.sendUser();
+    }
+  },
+  created() {
+    this.sendUser();
+  }
 }
 </script>

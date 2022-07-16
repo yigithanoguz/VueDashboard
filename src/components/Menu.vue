@@ -87,6 +87,7 @@ export default {
           children: [
             {
               label: 'Login',
+              to: 'login'
             },
             {
               label: 'Register',

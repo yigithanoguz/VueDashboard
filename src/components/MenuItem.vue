@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-item">
+  <router-link tag="div" to="" class="menu-item">
     <a class="label"
       @click="toggleMenu()"
       :style="{
@@ -21,6 +21,8 @@
       :style="{ height: containerHeight }"
     >
 
+
+
       <menu-item
         v-for="(item, index) in data"
         :key="index"
@@ -28,9 +30,14 @@
         :icon= item.icon
         :depth="depth + 1"
         :data="item.children"
+        :to="item.link"
       />
+
+      <!-- </router-link> -->
+
+
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -56,9 +63,9 @@ export default {
     data: {
       type: Array,
     },
-    to: {
-      type: String,
-    }
+    // link: {
+    //   type: String,
+    // }
   },
   methods: {
     toggleMenu() {

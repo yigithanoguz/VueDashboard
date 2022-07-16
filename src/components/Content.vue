@@ -1,7 +1,8 @@
 <template>
   <div class="content">
     <Header />
-    <router-view></router-view>
+    <router-view @user="user = $event"></router-view>
+    test : {{ user.email }}
     <!-- <ProjectsGridView /> -->
 
     <!-- <ProjectsTableView :project="project" />
@@ -33,7 +34,7 @@ export default {
     return {
       user: {
 
-      }
+      },
     }
   }
 }
